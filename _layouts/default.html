@@ -14,26 +14,17 @@
         <p class="brand-sub">二创长编 · 应声</p>
 
         {% assign ch = site.data.chapters %}
-        {% assign v1 = ch | where_exp: "c", "c.num <= 17" %}
-        {% assign v2 = ch | where_exp: "c", "c.num >= 18" %}
-
+        {% assign vols = ch | group_by: "vol" | sort: "name" %}
+        {%- for v in vols -%}
         <details class="vol" open>
-          <summary>卷一 · 两份饭<span class="cnt">{{ v1 | size }}</span></summary>
+          <summary>{{ v.name }}{% if v.items[0].volLabel %} · {{ v.items[0].volLabel }}{% endif %}<span class="cnt">{{ v.size }}</span></summary>
           <ul>
-            {%- for c in v1 -%}
+            {%- for c in v.items -%}
             <li><a{% if page.url == c.url %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
             {%- endfor -%}
           </ul>
         </details>
-
-        <details class="vol" open>
-          <summary>卷二 · 黑色蔷薇<span class="cnt">{{ v2 | size }}</span></summary>
-          <ul>
-            {%- for c in v2 -%}
-            <li><a{% if page.url == c.url %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
-            {%- endfor -%}
-          </ul>
-        </details>
+        {%- endfor -%}
 
         <nav class="side-links">
           <a href="{{ '/about.html' | relative_url }}">凡例</a>

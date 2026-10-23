@@ -2,6 +2,7 @@
 /* 章节机械核验。只读，不改任何文件。
  * 用法：node tools/check-chapters.js            全书扫描
  *       node tools/check-chapters.js 014       只查某一章（仍与其余章节比对重复句）
+ * 正文按卷分目录存放：chapters/卷一/001-….md、chapters/卷二/018-….md，脚本递归扫。
  * 退出码：0 干净，1 有超标项（字数越界、禁词命中、拉丁残留）。跨章重复句只报不判，需人判断是否刻意复现。
  */
 const fs = require("fs");
@@ -39,30 +40,46 @@ const warnTerms = [
   "堤下空"
 ];
 
-const files = fs.readdirSync(dir).filter(f => f.endsWith(".md")).sort();
-const texts = {};
-for (const f of files) {
-  texts[f] = fs.readFileSync(path.join(dir, f), "utf8");
+function walk(root) {
+  const out = [];
+  for (const entry of fs.readdirSync(root, { withFileTypes: true })) {
+    const full = path.join(root, entry.name);
+    if (entry.isDirectory()) {
+      out.push(...walk(full));
+    } else if (entry.name.endsWith(".md")) {
+      out.push(full);
+    }
+  }
+  return out.sort();
 }
+
+const files = walk(dir);
+const texts = {};
+for (const full of files) {
+  texts[path.basename(full)] = fs.readFileSync(full, "utf8");
+}
+const names = Object.keys(texts);
 
 let bad = 0;
 
-for (const f of files) {
-  if (only && !f.startsWith(only)) {
+for (const full of files) {
+  const name = path.basename(full);
+  if (only && !name.startsWith(only)) {
     continue;
   }
-  const t = texts[f];
+  const t = texts[name];
   const han = (t.match(/[一-鿿]/g) || []).length;
   const sections = (t.match(/^## /gm) || []).length;
   const latin = (t.match(/[A-Za-z]{2,}/g) || []).join(",");
   const hits = bannedWords.filter(w => t.includes(w));
   const warns = warnTerms.filter(w => t.includes(w));
   const firstLine = t.split("\n")[0].replace(/^#\s*/, "");
+  const vol = path.relative(dir, full).split(path.sep)[0];
 
   const cross = [];
   const norm = t.replace(/\s/g, "");
-  for (const g of files) {
-    if (g === f) {
+  for (const g of names) {
+    if (g === name) {
       continue;
     }
     const other = g.startsWith(only) ? norm : texts[g].replace(/\s/g, "");
@@ -79,7 +96,7 @@ for (const f of files) {
     bad++;
   }
 
-  console.log(f.replace(".md", ""));
+  console.log(name.replace(/\.md$/, "") + "（" + vol + "）");
   console.log("  标题：" + firstLine);
   console.log("  汉字：" + han + (over ? "  ← 超出 2800 到 3500" : "  区间内") + "，节：" + sections);
   console.log("  禁用词：" + (hits.join("、") || "无") + "，拉丁残留：" + (latin || "无"));
@@ -88,9 +105,9 @@ for (const f of files) {
 }
 
 let total = 0;
-for (const f of files) {
-  total += ((texts[f].match(/[一-鿿]/g) || []).length);
+for (const name of names) {
+  total += ((texts[name].match(/[一-鿿]/g) || []).length);
 }
 console.log("");
-console.log("章数：" + files.length + "，全书汉字：" + total + "，问题章数：" + bad);
+console.log("章数：" + names.length + "，全书汉字：" + total + "，问题章数：" + bad);
 process.exit(bad ? 1 : 0);
