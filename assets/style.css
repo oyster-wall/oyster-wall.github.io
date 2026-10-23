@@ -194,6 +194,62 @@ li { margin: .25rem 0; }
   text-indent: 0;
 }
 
+.pager {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: .8rem;
+  margin-top: 3.2rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--rule);
+}
+
+.pager a {
+  flex: 1 1 0;
+  min-width: 0;
+  display: block;
+  text-decoration: none;
+  padding: .55rem .7rem;
+  border: 1px solid var(--rule);
+  background: #fbf9f5;
+}
+
+.pager a:hover { background: var(--panel); border-color: #cfc4b3; }
+
+.pager .dir {
+  display: block;
+  font-size: .78rem;
+  letter-spacing: .14em;
+  color: var(--ink-soft);
+}
+
+.pager .t {
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--accent);
+}
+
+.pager .next { text-align: right; }
+
+.pager .empty { flex: 1 1 0; border: 0; }
+
+.pager .mid {
+  flex: 0 0 auto;
+  align-self: center;
+  font-size: .8rem;
+  letter-spacing: .06em;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+@media (max-width: 52rem) {
+  .pager { flex-wrap: wrap; }
+  .pager .mid { order: -1; width: 100%; text-align: center; }
+}
+
 .site-foot {
   max-width: 62rem;
   margin: 0 auto;
