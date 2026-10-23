@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: 'zh-CN' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+  </head>
+  <body>
+    <header class="site-head">
+      <a class="brand" href="{{ '/' | relative_url }}">蛎墙</a>
+      <nav class="site-nav">
+        <a href="{{ '/#卷一' | relative_url }}">卷一</a>
+        <a href="{{ '/#卷二' | relative_url }}">卷二</a>
+        <a href="{{ '/about.html' | relative_url }}">凡例</a>
+        <a href="https://github.com/oyster-wall/oyster-wall.github.io">仓库</a>
+      </nav>
+    </header>
+
+    <main>{{ content }}</main>
+
+    <footer class="site-foot">
+      <p>墙在数日子。本页由仓库 main 分支直接构建，正文在 chapters 目录下。</p>
+    </footer>
+  </body>
+</html>

@@ -31,4 +31,4 @@
 
 ## 站点
 
-仓库根已发布为 GitHub Pages，构建方式是仓库设置里的 legacy 构建，源分支 main、路径根目录，所以正文地址形如 oyster-wall.github.io/chapters/001-shed-skin.html，章节文件名就是网址。阅读站的生成器与分站路径还没定；定了之后子路径必须在生成器配置里显式设 base 与 root，漏一项就是页面能打开而资源全 404。
+仓库根已发布为 GitHub Pages，构建方式是仓库设置里的 legacy 构建，源分支 main、路径根目录。首页是 index.html，套自己写的布局与样式（_layouts/default.html 与 assets/style.css），不是 README 的渲染结果；README 已在 _config.yml 里排除，不出现在站点上。章节目录由 tools/build-index.js 从每章首行的章题生成到 _data/chapters.yml，新增或改章题后重跑一次再提交。正文地址形如 oyster-wall.github.io/chapters/001-shed-skin.html。将来若要把某一本挪到子路径，必须在构建配置里显式设 base 与 root，漏一项就是页面能打开而资源全 404。

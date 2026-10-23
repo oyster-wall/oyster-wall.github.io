@@ -1,0 +1,133 @@
+/* 蛎墙 · 阅读站样式，自己写的不依赖主题 */
+
+:root {
+  --ink: #211d1a;
+  --ink-soft: #6a605a;
+  --paper: #f7f4ee;
+  --rule: #ddd5c9;
+  --accent: #7c2b2b;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 17px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Songti SC", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun", serif;
+  line-height: 1.95;
+  -webkit-font-smoothing: antialiased;
+}
+
+.site-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  border-bottom: 1px solid var(--rule);
+  flex-wrap: wrap;
+}
+
+.brand {
+  font-size: 1.15rem;
+  letter-spacing: .18em;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.site-nav { display: flex; gap: 1.1rem; flex-wrap: wrap; }
+
+.site-nav a,
+main a { color: var(--accent); text-decoration: none; }
+
+.site-nav a { font-size: .92rem; letter-spacing: .08em; }
+
+.site-nav a:hover, main a:hover { text-decoration: underline; }
+
+main {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 2.2rem 1.2rem 3rem;
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: .06em;
+  margin: 0 0 1.6rem;
+}
+
+h2 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  margin: 2.4rem 0 1rem;
+  padding-bottom: .35rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+/* 正文：章内小节标题只留序号，做成居中的分隔 */
+main article h2, main h2.section { letter-spacing: .3em; }
+
+p { margin: 0 0 1.05rem; }
+
+/* 正文段落首行缩进，标题与列表不缩进 */
+main p { text-indent: 2em; }
+main h1 + p, main h2 + p, ul p, li p { text-indent: 0; }
+
+blockquote {
+  margin: 1.2rem 0;
+  padding-left: 1rem;
+  border-left: 2px solid var(--rule);
+  color: var(--ink-soft);
+}
+
+ul, ol { padding-left: 1.4rem; }
+
+li { margin: .25rem 0; }
+
+.toc { list-style: none; padding: 0; }
+
+.toc li {
+  display: flex;
+  gap: .8rem;
+  align-items: baseline;
+  border-bottom: 1px dotted var(--rule);
+  padding: .42rem 0;
+}
+
+.toc .n {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-soft);
+  min-width: 3.2em;
+  font-size: .9rem;
+  letter-spacing: .04em;
+}
+
+.lede { color: var(--ink-soft); text-indent: 0; }
+
+.note {
+  font-size: .92rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--rule);
+  padding: .8rem 1rem;
+  margin: 1.6rem 0;
+}
+
+.site-foot {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 0 1.2rem 2.6rem;
+  color: var(--ink-soft);
+  font-size: .88rem;
+}
+
+.site-foot p { text-indent: 0; }
+
+@media (max-width: 42rem) {
+  html { font-size: 16px; }
+  main { padding-top: 1.6rem; }
+}
