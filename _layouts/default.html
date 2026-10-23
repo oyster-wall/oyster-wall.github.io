@@ -10,6 +10,7 @@
     <link rel="apple-touch-icon" href="{{ '/favicon.png' | relative_url }}">
   </head>
   <body>
+    {% assign slug = page.url | split: '/' | last %}
     <div class="wrap">
       <aside class="side">
         <a class="brand" href="{{ '/' | relative_url }}">蛎墙</a>
@@ -22,7 +23,7 @@
           <summary>{{ v.name }}{% if v.items[0].volLabel %} · {{ v.items[0].volLabel }}{% endif %}<span class="cnt">{{ v.size }}</span></summary>
           <ul>
             {%- for c in v.items -%}
-            <li><a{% if page.url == c.url %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
+            <li><a{% if slug == c.slug %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
             {%- endfor -%}
           </ul>
         </details>
@@ -37,24 +38,18 @@
       <main>
         <article>{{ content }}</article>
 
-        {% assign idx = -1 %}
-        {%- for c in site.data.chapters -%}
-          {%- if c.url == page.url -%}{%- assign idx = forloop.index0 -%}{%- endif -%}
-        {%- endfor -%}
-        {%- if idx >= 0 -%}
-          {%- assign total = site.data.chapters | size -%}
-          {%- assign last = total | minus: 1 -%}
+        {% assign cur = site.data.chapters | where_exp: "c", "c.slug == slug" | first %}
+        <!-- probe: {{ page.url }} | {{ slug }} | {{ cur.num }} -->
+        {%- if cur -%}
           <nav class="pager">
-            {%- if idx > 0 -%}
-              {%- assign prev = idx | minus: 1 -%}
-              <a class="prev" href="{{ site.data.chapters[prev].url | relative_url }}"><span class="dir">上一章</span><span class="t">{{ site.data.chapters[prev].title }}</span></a>
+            {%- if cur.prevUrl != "" -%}
+              <a class="prev" href="{{ cur.prevUrl | relative_url }}"><span class="dir">上一章</span><span class="t">{{ cur.prevTitle }}</span></a>
             {%- else -%}
               <span class="prev empty"></span>
             {%- endif -%}
-            <span class="mid">{{ page.url | split: '/' | last | slice: 0, 3 }} · 全 {{ total }} 章</span>
-            {%- if idx < last -%}
-              {%- assign next = idx | plus: 1 -%}
-              <a class="next" href="{{ site.data.chapters[next].url | relative_url }}"><span class="dir">下一章</span><span class="t">{{ site.data.chapters[next].title }}</span></a>
+            <span class="mid">{{ cur.num }} · 全 {{ site.data.chapters | size }} 章</span>
+            {%- if cur.nextUrl != "" -%}
+              <a class="next" href="{{ cur.nextUrl | relative_url }}"><span class="dir">下一章</span><span class="t">{{ cur.nextTitle }}</span></a>
             {%- else -%}
               <span class="next empty"></span>
             {%- endif -%}

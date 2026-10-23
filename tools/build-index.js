@@ -44,13 +44,21 @@ if (missing.length) {
 }
 
 fs.mkdirSync(path.dirname(out), { recursive: true });
+rows.forEach((r, i) => {
+  r.slug = r.url.split("/").pop();
+  r.prev = i > 0 ? rows[i - 1] : null;
+  r.next = i < rows.length - 1 ? rows[i + 1] : null;
+});
 let y = "# 由 tools/build-index.js 生成，别手改；新增章、改章题或换卷目录后重跑一次再提交。\n";
 for (const r of rows) {
   y += "- num: " + r.num + "\n";
+  y += '  slug: "' + r.slug + '"\n';
   y += '  vol: "' + r.vol + '"\n';
   y += '  volLabel: "' + r.volLabel + '"\n';
   y += '  title: "' + r.title + '"\n';
   y += '  url: "' + r.url + '"\n';
+  y += (r.prev ? '  prevUrl: "' + r.prev.url + '"\n  prevTitle: "' + r.prev.title + '"\n' : '  prevUrl: ""\n  prevTitle: ""\n');
+  y += (r.next ? '  nextUrl: "' + r.next.url + '"\n  nextTitle: "' + r.next.title + '"\n' : '  nextUrl: ""\n  nextTitle: ""\n');
 }
 fs.writeFileSync(out, y);
 
