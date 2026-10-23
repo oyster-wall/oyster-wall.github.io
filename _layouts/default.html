@@ -39,7 +39,6 @@
         <article>{{ content }}</article>
 
         {% assign cur = site.data.chapters | where_exp: "c", "c.slug == slug" | first %}
-        <!-- probe: {{ page.url }} | {{ slug }} | {{ cur.num }} -->
         {%- if cur -%}
           <nav class="pager">
             {%- if cur.prevUrl != "" -%}
