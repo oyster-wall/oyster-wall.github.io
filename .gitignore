@@ -1,0 +1,17 @@
+# 工作笔记不公开：里面写着本地绝对路径、素材库位置、代理决定与流程口径。
+# 这一目录之外的正文与设定文件才是仓库内容。
+工作笔记/
+
+# 系统与编辑器垃圾
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# 本地构建产物
+node_modules/
+public/
+.deploy*/

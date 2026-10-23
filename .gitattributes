@@ -1,0 +1,19 @@
+# 行尾规矩：GitHub 上 core.autocrlf 为 true 时，不显式钉住的文本文件会被转成 CRLF。
+# 正文与脚本一律 LF，批处理一律 CRLF，二进制不做转换。
+* text=auto eol=lf
+
+*.md      text eol=lf
+*.js      text eol=lf
+*.json    text eol=lf
+*.yml     text eol=lf
+*.html    text eol=lf
+*.css     text eol=lf
+
+*.bat     text eol=crlf
+*.cmd     text eol=crlf
+
+*.png     binary
+*.jpg     binary
+*.webp    binary
+*.mp3     binary
+*.zip     binary
