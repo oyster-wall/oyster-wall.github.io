@@ -43,6 +43,7 @@
         {%- endfor -%}
         {%- if idx >= 0 -%}
           {%- assign total = site.data.chapters | size -%}
+          {%- assign last = total | minus: 1 -%}
           <nav class="pager">
             {%- if idx > 0 -%}
               {%- assign prev = idx | minus: 1 -%}
@@ -51,7 +52,7 @@
               <span class="prev empty"></span>
             {%- endif -%}
             <span class="mid">{{ page.url | split: '/' | last | slice: 0, 3 }} · 全 {{ total }} 章</span>
-            {%- if idx < total | minus: 1 -%}
+            {%- if idx < last -%}
               {%- assign next = idx | plus: 1 -%}
               <a class="next" href="{{ site.data.chapters[next].url | relative_url }}"><span class="dir">下一章</span><span class="t">{{ site.data.chapters[next].title }}</span></a>
             {%- else -%}
