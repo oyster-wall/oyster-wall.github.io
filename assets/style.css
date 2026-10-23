@@ -39,11 +39,15 @@ body {
   align-self: start;
   max-height: calc(100vh - 2.8rem);
   overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
   padding-bottom: 1.4rem;
   border-right: 1px solid var(--rule);
   padding-right: 1.1rem;
   font-size: .95rem;
 }
+
+.side::-webkit-scrollbar { width: 0; height: 0; display: none; }
 
 .brand {
   display: block;
@@ -210,5 +214,6 @@ li { margin: .25rem 0; }
     padding-bottom: .9rem;
   }
   details.vol { margin-bottom: .4rem; }
-  .side ul { max-height: 46vh; overflow-y: auto; }
+  .side ul { max-height: 46vh; overflow-y: auto; scrollbar-width: none; }
+  .side ul::-webkit-scrollbar { width: 0; display: none; }
 }

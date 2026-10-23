@@ -6,6 +6,7 @@ kramdown:
   hard_wrap: false
 exclude:
   - README.md
+  - 设定
   - 工作笔记
   - node_modules
   - vendor
