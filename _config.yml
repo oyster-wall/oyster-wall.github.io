@@ -1,11 +1,9 @@
 title: 蛎墙
 description: 二创长编 · 蛎墙 · 应声 —— 一部 200 章十二卷的中文长篇，卷一 两份饭，卷二 黑色蔷薇。
 lang: zh-CN
-baseurl: ""
 markdown: kramdown
 kramdown:
   hard_wrap: false
-include: ["_pages"]
 exclude:
   - README.md
   - 工作笔记
@@ -13,4 +11,3 @@ exclude:
   - vendor
   - Gemfile
   - Gemfile.lock
-permalink: pretty

@@ -3,25 +3,51 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% if page.title %}{{ page.title }} | {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
     <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 }}">
     <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
   </head>
   <body>
-    <header class="site-head">
-      <a class="brand" href="{{ '/' | relative_url }}">蛎墙</a>
-      <nav class="site-nav">
-        <a href="{{ '/#vol-1' | relative_url }}">卷一</a>
-        <a href="{{ '/#vol-2' | relative_url }}">卷二</a>
-        <a href="{{ '/about.html' | relative_url }}">凡例</a>
-        <a href="https://github.com/oyster-wall/oyster-wall.github.io">仓库</a>
-      </nav>
-    </header>
+    <div class="wrap">
+      <aside class="side">
+        <a class="brand" href="{{ '/' | relative_url }}">蛎墙</a>
+        <p class="brand-sub">二创长编 · 应声</p>
 
-    <main>{{ content }}</main>
+        {% assign ch = site.data.chapters %}
+        {% assign v1 = ch | where_exp: "c", "c.num <= 17" %}
+        {% assign v2 = ch | where_exp: "c", "c.num >= 18" %}
+
+        <details class="vol" open>
+          <summary>卷一 · 两份饭<span class="cnt">{{ v1 | size }}</span></summary>
+          <ul>
+            {%- for c in v1 -%}
+            <li><a{% if page.url == c.url %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </details>
+
+        <details class="vol" open>
+          <summary>卷二 · 黑色蔷薇<span class="cnt">{{ v2 | size }}</span></summary>
+          <ul>
+            {%- for c in v2 -%}
+            <li><a{% if page.url == c.url %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
+            {%- endfor -%}
+          </ul>
+        </details>
+
+        <nav class="side-links">
+          <a href="{{ '/about.html' | relative_url }}">凡例</a>
+          <a href="https://github.com/oyster-wall/oyster-wall.github.io">仓库</a>
+        </nav>
+      </aside>
+
+      <main>
+        <article>{{ content }}</article>
+      </main>
+    </div>
 
     <footer class="site-foot">
-      <p>墙在数日子。本页由仓库 main 分支直接构建，正文在 chapters 目录下。</p>
+      <p>墙在数日子。本页由仓库 main 分支直接构建。</p>
     </footer>
   </body>
 </html>
