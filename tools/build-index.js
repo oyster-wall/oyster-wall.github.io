@@ -16,6 +16,21 @@ const volLabels = {
   "卷三": "夜莺森林"
 };
 
+/* 卷目录的排序号：卷一的「一」比卷二的「二」小，但字序上「三」在「二」前，
+   所以给每卷算一个两位数的序号，模板按它分组排序，不按卷名字序排。 */
+const CN = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9 };
+function volOrder(vol) {
+  const m = /^卷(.+)$/.exec(vol || "");
+  if (!m) return "99";
+  const s = m[1];
+  let n;
+  if (s === "十") n = 10;
+  else if (s[0] === "十") n = 10 + (CN[s[1]] || 0);
+  else if (s[1] === "十") n = (CN[s[0]] || 0) * 10 + (CN[s[2]] || 0);
+  else n = CN[s] || 0;
+  return String(n).padStart(2, "0");
+}
+
 function walk(root) {
   const list = [];
   for (const e of fs.readdirSync(root, { withFileTypes: true })) {
@@ -34,6 +49,7 @@ const rows = walk(dir).map(full => {
     num: parseInt(path.basename(full).slice(0, 3), 10),
     title: first.replace(/^#\s*/, "").trim(),
     vol: vol,
+    volOrder: volOrder(vol),
     volLabel: volLabels[vol] || "",
     url: "/chapters/" + rel.join("/") .replace(/\.md$/, ".html")
   };
@@ -57,6 +73,7 @@ for (const r of rows) {
   y += "- num: " + r.num + "\n";
   y += '  slug: "' + r.slug + '"\n';
   y += '  vol: "' + r.vol + '"\n';
+  y += '  volOrder: "' + r.volOrder + '"\n';
   y += '  volLabel: "' + r.volLabel + '"\n';
   y += '  title: "' + r.title + '"\n';
   y += '  url: "' + r.url + '"\n';

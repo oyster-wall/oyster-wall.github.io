@@ -2,6 +2,7 @@
 - num: 1
   slug: "001-shed-skin.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "蜕下来的一张皮"
   url: "/chapters/卷一/001-shed-skin.html"
@@ -12,6 +13,7 @@
 - num: 2
   slug: "002-doorkeeper.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "门后的第三位"
   url: "/chapters/卷一/002-doorkeeper.html"
@@ -22,6 +24,7 @@
 - num: 3
   slug: "003-quota.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "一格之证"
   url: "/chapters/卷一/003-quota.html"
@@ -32,6 +35,7 @@
 - num: 4
   slug: "004-groove.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "沟底的木茬"
   url: "/chapters/卷一/004-groove.html"
@@ -42,6 +46,7 @@
 - num: 5
   slug: "005-lighthouse.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "灯塔下"
   url: "/chapters/卷一/005-lighthouse.html"
@@ -52,6 +57,7 @@
 - num: 6
   slug: "006-half-notch.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "半格"
   url: "/chapters/卷一/006-half-notch.html"
@@ -62,6 +68,7 @@
 - num: 7
   slug: "007-one-meal.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "一份饭"
   url: "/chapters/卷一/007-one-meal.html"
@@ -72,6 +79,7 @@
 - num: 8
   slug: "008-four-scrapes.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "四道刮"
   url: "/chapters/卷一/008-four-scrapes.html"
@@ -82,6 +90,7 @@
 - num: 9
   slug: "009-three-nights.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "三个夜晚"
   url: "/chapters/卷一/009-three-nights.html"
@@ -92,6 +101,7 @@
 - num: 10
   slug: "010-changed-piece.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "换一格的皮"
   url: "/chapters/卷一/010-changed-piece.html"
@@ -102,6 +112,7 @@
 - num: 11
   slug: "011-tide-turns.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "海在翻身"
   url: "/chapters/卷一/011-tide-turns.html"
@@ -112,6 +123,7 @@
 - num: 12
   slug: "012-song-in-town.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "一支没唱完的歌"
   url: "/chapters/卷一/012-song-in-town.html"
@@ -122,6 +134,7 @@
 - num: 13
   slug: "013-twelfth-line.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "第十二句"
   url: "/chapters/卷一/013-twelfth-line.html"
@@ -132,6 +145,7 @@
 - num: 14
   slug: "014-paper-on-the-board.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "牌上新添一行"
   url: "/chapters/卷一/014-paper-on-the-board.html"
@@ -142,6 +156,7 @@
 - num: 15
   slug: "015-his-mark.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "一枚印"
   url: "/chapters/卷一/015-his-mark.html"
@@ -152,6 +167,7 @@
 - num: 16
   slug: "016-five-houses.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "五张纸"
   url: "/chapters/卷一/016-five-houses.html"
@@ -162,6 +178,7 @@
 - num: 17
   slug: "017-out-of-town.html"
   vol: "卷一"
+  volOrder: "01"
   volLabel: "两份饭"
   title: "出镇"
   url: "/chapters/卷一/017-out-of-town.html"
@@ -172,6 +189,7 @@
 - num: 18
   slug: "018-petition.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "请愿的第一页"
   url: "/chapters/卷二/018-petition.html"
@@ -182,6 +200,7 @@
 - num: 19
   slug: "019-unnamed-bones.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "无名的那一副"
   url: "/chapters/卷二/019-unnamed-bones.html"
@@ -192,6 +211,7 @@
 - num: 20
   slug: "020-second-grade.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "按册领"
   url: "/chapters/卷二/020-second-grade.html"
@@ -202,6 +222,7 @@
 - num: 21
   slug: "021-gray-seal.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "印与灰"
   url: "/chapters/卷二/021-gray-seal.html"
@@ -212,6 +233,7 @@
 - num: 22
   slug: "022-first-voice.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "起头那一声"
   url: "/chapters/卷二/022-first-voice.html"
@@ -222,6 +244,7 @@
 - num: 23
   slug: "023-road-copy.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "抄进卷的两句话"
   url: "/chapters/卷二/023-road-copy.html"
@@ -232,6 +255,7 @@
 - num: 24
   slug: "024-folded-corner.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "折起来的那一行"
   url: "/chapters/卷二/024-folded-corner.html"
@@ -242,6 +266,7 @@
 - num: 25
   slug: "025-at-the-dike.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "牌前四张纸"
   url: "/chapters/卷二/025-at-the-dike.html"
@@ -252,6 +277,7 @@
 - num: 26
   slug: "026-third-of-ninth.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "九月初三"
   url: "/chapters/卷二/026-third-of-ninth.html"
@@ -262,6 +288,7 @@
 - num: 27
   slug: "027-set-not-slain.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "验出来的不是杀"
   url: "/chapters/卷二/027-set-not-slain.html"
@@ -272,6 +299,7 @@
 - num: 28
   slug: "028-line-ridge.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "线脊上的一横"
   url: "/chapters/卷二/028-line-ridge.html"
@@ -282,6 +310,7 @@
 - num: 29
   slug: "029-what-would-i-hold.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "我占它做什么"
   url: "/chapters/卷二/029-what-would-i-hold.html"
@@ -292,6 +321,7 @@
 - num: 30
   slug: "030-one-board.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "一块板"
   url: "/chapters/卷二/030-one-board.html"
@@ -302,6 +332,7 @@
 - num: 31
   slug: "031-still-unanswered.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "读到未答"
   url: "/chapters/卷二/031-still-unanswered.html"
@@ -312,6 +343,7 @@
 - num: 32
   slug: "032-false-date.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "撒谎的职位"
   url: "/chapters/卷二/032-false-date.html"
@@ -322,6 +354,7 @@
 - num: 33
   slug: "033-pinned-to-the-order.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "钉在令上"
   url: "/chapters/卷二/033-pinned-to-the-order.html"
@@ -332,6 +365,7 @@
 - num: 34
   slug: "034-behind-the-scenes.html"
   vol: "卷二"
+  volOrder: "02"
   volLabel: "黑色蔷薇"
   title: "退到幕后"
   url: "/chapters/卷二/034-behind-the-scenes.html"
@@ -342,6 +376,7 @@
 - num: 35
   slug: "035-the-page-comes-in.html"
   vol: "卷三"
+  volOrder: "03"
   volLabel: "夜莺森林"
   title: "那一页进林"
   url: "/chapters/卷三/035-the-page-comes-in.html"

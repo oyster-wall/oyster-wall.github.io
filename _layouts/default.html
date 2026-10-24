@@ -17,10 +17,10 @@
         <p class="brand-sub">二创长编 · 应声</p>
 
         {% assign ch = site.data.chapters %}
-        {% assign vols = ch | group_by: "vol" | sort: "name" %}
+        {% assign vols = ch | group_by: "volOrder" | sort: "name" %}
         {%- for v in vols -%}
         <details class="vol" open>
-          <summary>{{ v.name }}{% if v.items[0].volLabel %} · {{ v.items[0].volLabel }}{% endif %}<span class="cnt">{{ v.size }}</span></summary>
+          <summary>{{ v.items[0].vol }}{% if v.items[0].volLabel %} · {{ v.items[0].volLabel }}{% endif %}<span class="cnt">{{ v.size }}</span></summary>
           <ul>
             {%- for c in v.items -%}
             <li><a{% if slug == c.slug %} class="on"{% endif %} href="{{ c.url | relative_url }}"><i>{{ c.num }}</i>{{ c.title }}</a></li>
