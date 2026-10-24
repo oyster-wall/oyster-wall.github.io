@@ -12,7 +12,8 @@ const out = path.join(__dirname, "..", "_data", "chapters.yml");
 /* 卷目录名 → 卷题。开新卷时在 设定/分卷大纲.md 定名后，这里补一行。 */
 const volLabels = {
   "卷一": "两份饭",
-  "卷二": "黑色蔷薇"
+  "卷二": "黑色蔷薇",
+  "卷三": "夜莺森林"
 };
 
 function walk(root) {
@@ -37,6 +38,8 @@ const rows = walk(dir).map(full => {
     url: "/chapters/" + rel.join("/") .replace(/\.md$/, ".html")
   };
 });
+/* 目录顺序按章号，不按目录名的字序：卷三的「三」字序在「二」前，按路径排会把 035 排到卷二前头。 */
+rows.sort((a, b) => a.num - b.num);
 
 const missing = [...new Set(rows.filter(r => r.vol && !r.volLabel).map(r => r.vol))];
 if (missing.length) {
